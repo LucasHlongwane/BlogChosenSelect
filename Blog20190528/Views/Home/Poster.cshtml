@@ -1,0 +1,37 @@
+﻿@model Blog20190528.Models.Post
+@{
+    /**/
+
+    ViewBag.Title = "Poster";
+}
+
+<h2>Poster</h2>
+<link href="~/Content/chosen.css" rel="stylesheet" />
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.postTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.postTitle, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.postTitle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.postDesc, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.postDesc, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.postDesc, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @Html.DropDownListFor(x => x.CateList,
+    Model.GetCateList.Select(x => new SelectListItem { Text = x.cateName, Value = x.cateId.ToString() }),
+   new { @class = "form-control chosen-select", @multiple = true })
+
+    <input type="submit" value="Save" name="name" />
+}
+
+<script src="~/Scripts/chosen.jquery.js"></script>
+<script>
+    $('.chosen-select').chosen();
+</script>
