@@ -46,6 +46,31 @@ namespace Blog20190528.Controllers
             //save desc and title inside th epost table
             // after that save again into a new table you will create with the objPost - Id and loop the objPost array to save with the related post Id
 
+            Blog20190528Context db = new Blog20190528Context();
+
+
+            if (ModelState.IsValid)
+            {
+                db.Posts.Add(objPost);
+                db.SaveChanges();
+            }
+
+            for (int i = 0; i < objPost.CateList.Length; i++)
+            {
+                var postrefTab = new List<LookUp>
+                {
+                    new LookUp
+                    {
+                        postRef = objPost.postId,
+                        catRef = objPost.CateList[i].FirstOrDefault(),
+                    }
+                };
+                postrefTab.ForEach(s => db.LookUps.Add(s));
+                db.SaveChanges();
+                };
+            
+
+
             return RedirectToAction("Poster");
         }
     }

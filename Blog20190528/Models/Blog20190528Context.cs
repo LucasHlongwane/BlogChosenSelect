@@ -20,6 +20,9 @@ namespace Blog20190528.Models
         }
 
         public System.Data.Entity.DbSet<Blog20190528.Models.Category> Categories { get; set; }
-        
+
+        public System.Data.Entity.DbSet<Blog20190528.Models.LookUp> LookUps { get; set; }
+
+        public System.Data.Entity.DbSet<Blog20190528.Models.Post> Posts { get; set; }
     }
 }

@@ -127,11 +127,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LookUpsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Blog20190528Context.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\LookUp.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -181,6 +183,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Poster.cshtml" />
+    <Content Include="Views\LookUps\Create.cshtml" />
+    <Content Include="Views\LookUps\Delete.cshtml" />
+    <Content Include="Views\LookUps\Details.cshtml" />
+    <Content Include="Views\LookUps\Edit.cshtml" />
+    <Content Include="Views\LookUps\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
